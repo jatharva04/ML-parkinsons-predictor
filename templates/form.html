@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parkinson's Disease Prediction</title>
+
+  <!-- Bootstrap CSS (Latest, with SRI) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <style>
+body {
+  background: linear-gradient(135deg, #43cea2, #125191);
+}
+
+.bg-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+}
+
+button, .btn-primary {
+  background-color: #43cea2;
+  border: none;
+  color: #fff;
+}
+
+button:hover, .btn-primary:hover {
+  background-color: #2c9678;
+}
+
+
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 10px 0;
+    }
+    .footer-text {
+      text-align: center;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+ <a class="navbar-brand" href="/" style="text-decoration: none;">
+  <i class="bi bi-hospital" style="color: #2cbeea;"></i> 
+  <span style="color: #c1c1ab;">Parkinson's Predictor</span>
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/form">Predict</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Main Container -->
+  <div class="container py-4">
+    <div class="bg-overlay shadow">
+<h1 class="text-center mb-4" style="color: #43cea2;">Parkinson's Disease Prediction</h1>
+
+
+      <!-- Full Prediction Form -->
+<form action="/predict" method="POST" class="row g-3">
+
+    <div class="col-md-4">
+        <label class="form-label">MDVP:Fo(Hz):</label>
+        <input type="text" name="MDVP_Fo" class="form-control" value="120.400" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">MDVP:Fhi(Hz):</label>
+        <input type="text" name="MDVP_Fhi" class="form-control" value="148.017" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">MDVP:Flo(Hz):</label>
+        <input type="text" name="MDVP_Flo" class="form-control" value="74.488" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">MDVP:Jitter(%):</label>
+        <input type="text" name="MDVP_Jitter_pc" class="form-control" value="0.00762" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">MDVP:Jitter(Abs):</label>
+        <input type="text" name="MDVP_Jitter_abs" class="form-control" value="0.000070" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">MDVP:RAP:</label>
+        <input type="text" name="MDVP_RAP" class="form-control" value="0.00431" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">MDVP:PPQ:</label>
+        <input type="text" name="MDVP_PPQ" class="form-control" value="0.00317" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Jitter:DDP:</label>
+        <input type="text" name="Jitter_DDP" class="form-control" value="0.01204" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">MDVP:Shimmer:</label>
+        <input type="text" name="MDVP_Shimmer" class="form-control" value="0.0256" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">MDVP:Shimmer(dB):</label>
+        <input type="text" name="MDVP_Shimmer_db" class="form-control" value="0.23" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Shimmer:APQ3:</label>
+        <input type="text" name="Shimmer_APQ3" class="form-control" value="0.01404" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Shimmer:APQ5:</label>
+        <input type="text" name="Shimmer_APQ5" class="form-control" value="0.01317" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Shimmer:APQ11:</label>
+        <input type="text" name="Shimmer_APQ11" class="form-control" value="0.01662" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">MDVP:APQ:</label>
+        <input type="text" name="MDVP_APQ" class="form-control" value="0.01879" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Shimmer:DDA:</label>
+        <input type="text" name="Shimmer_DDA" class="form-control" value="0.04312" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">NHR:</label>
+        <input type="text" name="NHR" class="form-control" value="0.01430" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">HNR:</label>
+        <input type="text" name="HNR" class="form-control" value="21.640" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">RPDE:</label>
+        <input type="text" name="RPDE" class="form-control" value="0.41888" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">DFA:</label>
+        <input type="text" name="DFA" class="form-control" value="0.54842" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Spread1:</label>
+        <input type="text" name="spread1" class="form-control" value="-4.19533" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Spread2:</label>
+        <input type="text" name="spread2" class="form-control" value="0.22930" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">D2:</label>
+        <input type="text" name="D2" class="form-control" value="2.38431" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">PPE:</label>
+        <input type="text" name="PPE" class="form-control" value="0.28006" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Age:</label>
+        <input type="number" name="age" class="form-control" value="72" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Sex (0=Female, 1=Male):</label>
+        <input type="number" name="sex" class="form-control" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Test Time:</label>
+        <input type="number" name="test_time" class="form-control" required>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Motor UPDRS:</label>
+        <input type="number" name="motor_UPDRS" class="form-control" required>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-success w-100">Predict</button>
+    </div>
+<div class="text-center my-3" id="spinner" style="display: none;">
+  <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Processing your prediction...</p>
+</div>
+</form>
+
+
+      <!-- Results Section -->
+      <div id="result" class="mt-4">
+        {% if result %}
+          <div class="alert {% if result == 'Negative' %}alert-success{% else %}alert-danger{% endif %}">
+            <h4 class="alert-heading">Prediction Result:</h4>
+            <p>{{ result }}</p>
+            {% if result == 'Positive' %}
+              <p>Predicted Score: <strong>{{ updrs_score }}</strong></p>
+              <p>Severity: <strong class="{% if severity == 'Severe' %}text-danger{% else %}text-dark{% endif %}">
+                {{ severity }} ({{ limit }})
+              </strong></p>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Severity Ranges -->
+      <div id="severity-ranges" class="mt-4">
+        <h5>Severity Levels:</h5>
+        <ul class="list-group">
+          <li class="list-group-item">Mild: 0 - 20</li>
+          <li class="list-group-item">Moderate: 21 - 40</li>
+          <li class="list-group-item">Severe: 41 - 60</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-5">
+    <div class="container">
+      <p class="footer-text">&copy; 2025 Parkinson's Predictor | Developed by Atharva</p>
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+ 
+</body>
+</html>

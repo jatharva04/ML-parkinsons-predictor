@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parkinson's Predictor - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <style>
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;   /* Controls height nicely */
+    object-fit: cover;   /* Maintains a banner feel */
+    object-position: center 25%;
+  
+}
+.carousel-caption {
+    color: #fff;            /* default color */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* optional: makes text pop on bright images */
+}
+
+.carousel-caption h2 {
+    color: #f3f4f8;         /* orange or any color you prefer */
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    color: #eeeeee;         /* softer white for paragraph */
+    font-size: 1.2rem;
+}
+body {
+  background: rgb(233, 243, 244)
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+ <a class="navbar-brand" href="/" style="text-decoration: none;">
+  <i class="bi bi-hospital" style="color: #2cbeea;"></i> 
+  <span style="color: #c1c1ab;">Parkinson's Predictor</span>
+</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/form">Predict</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Carousel -->
+ <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ url_for('static', filename='images/banner1.jpg') }}" class="d-block w-100" alt="Parkinson Image 1">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Welcome to Parkinson's Predictor</h2>
+          <p>Empowering early detection through ML Technology</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='images/banner2.jpg') }}" class="d-block w-100" alt="Parkinson Image 2">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>ML Based Technology</h2>
+          <p>Based on medicall datasets and ML models</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- FAQs Section -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+            What is Parkinson's Disease?
+          </button>
+        </h2>
+        <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Parkinson's disease is a progressive nervous system disorder that affects movement. Symptoms start gradually, sometimes with a barely noticeable tremor.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+            How does this prediction system work?
+          </button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            It uses machine learning models trained on patient voice features to predict the severity of Parkinson’s symptoms.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+            Is this tool suitable for medical diagnosis?
+          </button>
+        </h2>
+        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            No, this is a research project for educational purposes. Always consult a healthcare professional for medical advice.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+            How can I start using the predictor?
+          </button>
+        </h2>
+        <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Just click on the “Predict Now” button below to access the form and get started!
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Predict Button -->
+  <div class="text-center my-4">
+    <a href="/form" class="btn btn-primary btn-lg">Predict Now</a>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    &copy; 2025 Parkinson’s Predictor by Atharva
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  
+</body>
+
+</html>
