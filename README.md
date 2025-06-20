@@ -1,46 +1,58 @@
-# Parkinson's Disease Prediction System
+# 🧠 Parkinson's Disease Prediction Web Application
 
-Welcome to the **Parkinson's Disease Prediction System** — a machine learning-powered web application that predicts the likelihood of Parkinson’s Disease based on biomedical voice measurements. This project was developed as part of an **academic Machine Learning project** during the **third year (5th semester)** of the undergraduate program.
-
-The primary goal of this project is to leverage machine learning to assist in early detection of Parkinson’s Disease, providing valuable insights for medical research and potential clinical applications.
+A machine learning-powered web application to predict Parkinson’s Disease and estimate its severity using patient vocal features. This project was developed as part of an academic ML project with additional improvements for better usability and performance.
 
 ---
 
-## 🚀 Features
+## 📌 About the Project
 
-- ✅ Predicts **Parkinson's Disease** status (**Positive** or **Negative**) from input biomedical voice features.
-- ✅ Displays **UPDRS (Unified Parkinson’s Disease Rating Scale)** scores to offer additional context on the patient’s motor function.
-- ✅ Classifies severity levels into **Mild**, **Moderate**, and **Severe** for better interpretability.
-- ✅ Clean and intuitive **user interface** designed with **Bootstrap 5**.
-- ✅ Smooth **loading animation** (spinner) during prediction for improved experience.
+This project uses **three machine learning models**:
 
----
+1️⃣ **SVM Classifier** → Predicts if the patient has Parkinson’s (Yes / No) using vocal features.  
+2️⃣ **Random Forest Regressor** → Predicts the **Total UPDRS** score (Unified Parkinson's Disease Rating Scale) for severity estimation.  
+3️⃣ **Random Forest Classifier** → Predicts **Severity Levels** (Mild / Moderate / Severe) based on the predicted UPDRS score.
 
-## 📊 Datasets Used
-
-1. **Parkinson’s Disease Dataset (Classification)**  
-   🔗 [Kaggle Dataset](https://www.kaggle.com/datasets/vikasukani/parkinsons-disease-data-set)
-
-2. **Parkinson’s Telemonitoring Dataset (UPDRS Score Prediction)**  
-   🔗 [UCI Repository](https://archive.ics.uci.edu/dataset/174/parkinsons)
+Severity levels are calculated using the following range:
+- 🟢 **Mild**: 0 - 20
+- 🟡 **Moderate**: 21 - 40
+- 🔴 **Severe**: 41 - 60
 
 ---
 
-## 🛠️ Technology Stack
+## 📂 Datasets Used
 
-- **Frontend**: HTML5, CSS3, Bootstrap 5
-- **Backend**: Python (Flask Framework)
-- **Machine Learning**: scikit-learn (Support Vector Classifier)
-
----
-
-## 📚 Academic Context
-
-This project was submitted as part of the academic curriculum to demonstrate practical applications of machine learning in healthcare domains, specifically neurological disorders.
+- [Parkinson’s Disease Dataset (for Diagnosis)](https://www.kaggle.com/datasets/vikasukani/parkinsons-disease-data-set)
+- [Parkinson’s Telemonitoring Dataset (for Severity & UPDRS Score)](https://archive.ics.uci.edu/dataset/174/parkinsons)
 
 ---
 
-## 📄 License
+## 🌐 Features
 
-For educational and academic purposes only.
+- 🎯 Predict Parkinson’s Disease (Yes / No)
+- 📊 Predict UPDRS score (severity score)
+- 🚦 Display of severity level (Mild, Moderate, Severe)
+- 🖥️ Clean & modern Bootstrap-based UI with interactive elements
+- 🌀 Loading spinner for prediction feedback
+
+---
+
+## 📋 Technologies Used
+
+- Python (Flask)
+- HTML, CSS (Bootstrap 5)
+- Machine Learning (Scikit-learn)
+
+---
+
+## 🤖 Models Training Notebook
+
+You can find the model training code and approach in the provided Colab notebook inside this repository.
+
+---
+
+## 📎 License
+
+This project is for academic and educational purposes.
+
+---
 
